@@ -2,7 +2,7 @@ name: "Nslook Up urls"
 
 on:
   workflow_dispatch:
-  push:
+  # push:
     branches:
       - main
 
@@ -37,5 +37,5 @@ jobs:
 
             echo "----------------------"
           done < "url.txt"
-          
+
       
