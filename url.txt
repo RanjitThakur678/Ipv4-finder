@@ -1,0 +1,7 @@
+example.com
+google.com
+openai.com
+github.com
+tdf.atlassian.net
+youtube.com
+portal.azure.com
