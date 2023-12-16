@@ -1,0 +1,40 @@
+name: First workflow
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - main
+
+jobs:
+  run-shell-commands:
+    runs-on: ubuntu-latest
+    steps:
+      - name: print a command
+        run: echo "Hello World!"
+      - name: print multiline
+        run: |
+          node -v
+          npm -v
+          
+
+  parallel-jobs:
+    runs-on: macos-latest
+    needs: run-shell-commands
+    steps:
+      - name: print macos system configuration 
+        run: system_profiler SPSoftwareDataType SPHardwareDataType
+
+      - name: Display working directory
+        run: |
+          pwd
+          ls -al  
+          echo $GITHUB_SHA
+          echo $GITHUB_REPOSITORY
+          echo $GITHUB_WORKSPACE
+
+  Checking_out_code:
+    runs-on: ubuntu-latest
+    steps:
+      - name: checkout 
+        uses: actions/checkout@v4.1.0
